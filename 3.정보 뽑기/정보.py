@@ -44,6 +44,6 @@ soup = BeautifulSoup(html, 'html.parser')
 
 # 부모태그 아래있는 h2
 
-select = soup.select('div > h2.screen_out')
+select = soup.select('div > h2.screen_out')[0]
 print(select)
 print(len(select))
