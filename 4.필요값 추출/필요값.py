@@ -26,10 +26,10 @@ soup_select = soup.select('.head_bnr > a > img')
 # 해당 추출값
 print(soup_select)
 # JSON 으로 { } 나옴
-print(soup_select[0].attrs)
+#print(soup_select[0].attrs)
 ####################################
 # KEY 값으로 값 추출
-print(soup_select[0].attrs.get('src'))
+#print(soup_select[0].attrs.get('src'))
 print(soup_select[0]['alt'])
 #####################################
 print(soup_select[0].attrs.get('alt'))
