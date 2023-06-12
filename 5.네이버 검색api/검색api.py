@@ -53,7 +53,7 @@ for searchApi in searchApis :
             #print("bloggerlink = " + a['bloggerlink'])
             # print("postdate = " + a['postdate'])
             title_ = a['title']
-            print(a)
+            print("다음페이지")
 
     else:
         print("Error Code:" + rescode)
