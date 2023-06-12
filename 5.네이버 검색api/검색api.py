@@ -4,17 +4,28 @@ import os
 import sys
 import urllib.request
 import json
+from bs4 import BeautifulSoup
 
 query = input('검색할 키워드를 입력하세요: ')
 start = input('검색할 번호를 입력하세요: ')
 
+
+# 네이버 클라이언트 키
 client_id = "lxsjpmXAlmJDbhwogAxI"
 client_secret = "Ldbi14O1xW"
 
 
-#searchApis = ['blog','news','book','adult','cafearticle','kin','webkr','image','shop','doc']
+# 검색 키워드 adult 성인 확인./
+#searchApis = ['blog','news','book','cafearticle','kin','webkr','image','shop','doc']
 searchApis = ['blog']
 
+
+# 검색 결과값.
+title = ''
+link = ''
+
+
+# 검색 데이터
 for searchApi in searchApis :
     encText = urllib.parse.quote(query)
     url = f"https://openapi.naver.com/v1/search/{searchApi}?query=" + encText + "&display=100&start="+start  # JSON 결과
@@ -27,10 +38,23 @@ for searchApi in searchApis :
     rescode = response.getcode()
     if (rescode == 200):
         response_body = response.read()
-        print(response_body.decode('utf-8'))
-        decode = response_body.decode('utf-8')
-        print("====")
-        print(decode[0]['title'])
+        decodes = response_body.decode('utf-8')
+        print(decodes)
+        result = json.loads(decodes)
+        soup = BeautifulSoup(decodes,'html.parser')
+
+#타이틀
+
+        for a in result['items']:
+            print("title = " + a['title'])
+            print("link = " + a['link'])
+            print("description = " + a['description'])
+            print("bloggername = " + a['bloggername'])
+            print("bloggerlink = " + a['bloggerlink'])
+            print("postdate = " + a['postdate'])
+            title_ = a['title']
+            print("a+1")
 
     else:
         print("Error Code:" + rescode)
+
