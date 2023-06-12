@@ -17,7 +17,7 @@ client_secret = "Ldbi14O1xW"
 
 # 검색 키워드 adult 성인 확인./
 #searchApis = ['blog','news','book','cafearticle','kin','webkr','image','shop','doc']
-searchApis = ['blog']
+searchApis = ['blog','cafearticle']
 
 
 # 검색 결과값.
@@ -49,11 +49,11 @@ for searchApi in searchApis :
             print("title = " + a['title'])
             print("link = " + a['link'])
             print("description = " + a['description'])
-            print("bloggername = " + a['bloggername'])
-            print("bloggerlink = " + a['bloggerlink'])
-            print("postdate = " + a['postdate'])
+            #print("bloggername = " + a['bloggername'])
+            #print("bloggerlink = " + a['bloggerlink'])
+            # print("postdate = " + a['postdate'])
             title_ = a['title']
-            print("a+1")
+            print(a)
 
     else:
         print("Error Code:" + rescode)
