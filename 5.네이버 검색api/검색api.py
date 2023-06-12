@@ -29,6 +29,8 @@ for searchApi in searchApis :
         response_body = response.read()
         print(response_body.decode('utf-8'))
         decode = response_body.decode('utf-8')
+        print("====")
+        print(decode[0]['title'])
 
     else:
         print("Error Code:" + rescode)
